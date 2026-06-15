@@ -124,32 +124,47 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
-                    children: const [
-                      CircleAvatar(
-                        radius: 30,
-                        child: Icon(Icons.villa),
-                      ),
+                    children: [
+                      ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.asset(
+                              'assets/images/villa.jpg',
+                              width: 60,
+                              height: 60,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                       SizedBox(height: 8),
                       Text("Villa"),
                     ],
                   ),
 
                   Column(
-                    children: const [
-                      CircleAvatar(
-                        radius: 30,
-                        child: Icon(Icons.apartment),
+                    children:[
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        'assets/images/apartments.jpg',
+                        width: 60,
+                        height: 60,
+                        fit: BoxFit.cover,
                       ),
+                    ), 
                       SizedBox(height: 8),
                       Text("Apartment"),
                     ],
                   ),
 
                   Column(
-                    children: const [
-                      CircleAvatar(
-                        radius: 30,
-                        child: Icon(Icons.landscape),
+                    children:[
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(
+                          'assets/images/plots.jpg',
+                          width: 60,
+                          height: 60,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       SizedBox(height: 8),
                       Text("Plot"),
@@ -168,52 +183,146 @@ class HomePage extends StatelessWidget {
               ),
 
               const SizedBox(height: 20),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
 
-              Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Column(
-                    children: [
-
-                      Icon(
-                        Icons.home,
-                        size: 60,
-                        color: Colors.blue,
-                      ),
-
-                      SizedBox(height: 10),
-
-                      Text(
-                        "Luxury Villa",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                    // Villa Card
+                    SizedBox(
+                      width: 220,
+                      child: Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(15),
+                                child: Image.asset(
+                                  'assets/images/villa.jpg',
+                                  height: 120,
+                                  width: 200,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              const Text(
+                                "Luxury Villa",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const Text("Hyderabad"),
+                              const SizedBox(height: 5),
+                              const Text(
+                                "₹1.2 Cr",
+                                style: TextStyle(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
+                    ),
 
-                      SizedBox(height: 5),
-
-                      Text("Hyderabad"),
-
-                      SizedBox(height: 10),
-
-                      Text(
-                        "₹1.2 Cr",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold,
+                    // Apartment Card
+                    SizedBox(
+                      width: 220,
+                      child: Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(15),
+                                child: Image.asset(
+                                  'assets/images/apartments.jpg',
+                                  height: 120,
+                                  width: 200,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              const Text(
+                                "Modern Apartment",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const Text("Gachibowli"),
+                              const SizedBox(height: 5),
+                              const Text(
+                                "₹80 Lakh",
+                                style: TextStyle(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
+                    ),
 
-                    ],
-                  ),
+                    // Plot Card
+                    SizedBox(
+                      width: 220,
+                      child: Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(15),
+                                child: Image.asset(
+                                  'assets/images/plots.jpg',
+                                  height: 120,
+                                  width: 200,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              const Text(
+                                "Residential Plot",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const Text("Shamshabad"),
+                              const SizedBox(height: 5),
+                              const Text(
+                                "₹35 Lakh",
+                                style: TextStyle(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                  ],
                 ),
-              ),
+
+
+
+
+              
             ],
           ),
         ),
