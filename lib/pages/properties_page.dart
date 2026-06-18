@@ -104,7 +104,9 @@ class PropertiesPage extends StatelessWidget {
       String location,
       String price,
       ) {
-    return GestureDetector(
+  return MouseRegion(
+  cursor: SystemMouseCursors.click,
+  child: GestureDetector(
   onTap: () {
     Navigator.push(
       context,
@@ -123,9 +125,20 @@ class PropertiesPage extends StatelessWidget {
       width: 320,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white10,
-        borderRadius: BorderRadius.circular(25),
-      ),
+  color: Colors.white.withValues(alpha: 0.05),
+  borderRadius: BorderRadius.circular(25),
+  border: Border.all(
+    color: Colors.white24,
+    width: 1,
+  ),
+  boxShadow: [
+    BoxShadow(
+      color: Colors.black.withValues(alpha:0.2),
+      blurRadius: 20,
+      spreadRadius: 2,
+    ),
+  ],
+),
       child: Column(
         children: [
           ClipRRect(
@@ -166,6 +179,7 @@ class PropertiesPage extends StatelessWidget {
           ),
         ],
       ),
+  ),
   ),
     );
   }

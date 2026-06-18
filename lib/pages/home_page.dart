@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/pages/properties_page.dart';
+import 'about_page.dart';
+import 'contact_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -26,15 +28,25 @@ class HomePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
 
-                          const Text(
+                          Row(
+                        children: const [
+                          Icon(
+                            Icons.home_work_rounded,
+                            color: Colors.white,
+                            size: 32,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
                             "LUXE ESTATES",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 26,
+                              fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              letterSpacing: 2,
+                              letterSpacing: 1.5,
                             ),
                           ),
+                        ],
+                      ),
 
                           Container(
                             padding: const EdgeInsets.symmetric(
@@ -59,22 +71,51 @@ class HomePage extends StatelessWidget {
                                 },
                                 child: const Text(
                                   "Properties",
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,),
                                 ),
                               ),
 
                               const SizedBox(width: 20),
 
-                              const Text(
-                                "About",
-                                style: TextStyle(color: Colors.white),
-                              ),
+                                                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AboutPage(),
+                            ),
+                          );
+                        },
+                          child: const Text(                 
+                          "About",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                        
+                      ),
 
                               const SizedBox(width: 20),
 
-                              const Text(
-                                "Contact",
-                                style: TextStyle(color: Colors.white),
+                             GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const ContactPage(),
+                                    ),
+                                  );
+                                },
+                                child: const Text(
+                                  "Contact",
+                                  style: TextStyle(color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,),
+                                ),
                               ),
                             ],
                           ),
@@ -533,7 +574,126 @@ class HomePage extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 60),
+                const SizedBox(height: 80),
 
+                
+
+const Text(
+  "Why Choose Us",
+  style: TextStyle(
+    fontSize: 40,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  ),
+),
+
+const SizedBox(height: 40),
+
+Wrap(
+  spacing: 20,
+  runSpacing: 20,
+  alignment: WrapAlignment.center,
+  children: [
+
+    featureCard(
+      Icons.verified,
+      "Trusted",
+      "Verified properties and transparent transactions.",
+    ),
+
+    featureCard(
+      Icons.support_agent,
+      "Expert Support",
+      "Professional consultants available anytime.",
+    ),
+
+    featureCard(
+      Icons.trending_up,
+      "Best Investment",
+      "Properties with strong growth potential.",
+    ),
+  ],
+),
+
+const SizedBox(height: 80),
+
+const Text(
+  "What Our Clients Say",
+  style: TextStyle(
+    fontSize: 40,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  ),
+),
+
+const SizedBox(height: 40),
+
+Wrap(
+  spacing: 20,
+  runSpacing: 20,
+  alignment: WrapAlignment.center,
+  children: [
+
+    testimonialCard(
+      "Priya Reddy",
+      "Amazing experience! Found my dream villa within a week.",
+    ),
+
+    testimonialCard(
+      "Rahul Verma",
+      "Professional team and transparent process throughout.",
+    ),
+
+    testimonialCard(
+      "Ananya Sharma",
+      "Best real estate platform I've worked with.",
+    ),
+  ],
+),
+
+
+
+
+Container(
+  width: double.infinity,
+  padding: const EdgeInsets.all(40),
+  color: Colors.black26,
+  child: const Column(
+    children: [
+
+      Text(
+        "LUXE ESTATES",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+
+      SizedBox(height: 10),
+
+      Text(
+        "Luxury Living Starts Here",
+      style: TextStyle(
+      fontSize: 42,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      letterSpacing: 1.2,
+    ),
+      ),
+
+      SizedBox(height: 20),
+
+      Text(
+        "© 2026 Luxe Estates. All Rights Reserved.",
+        style: TextStyle(
+          color: Colors.white54,
+        ),
+      ),
+    ],
+  ),
+),
+               
 
 
               
@@ -541,6 +701,97 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+    ),
+  );
+}
+
+Widget featureCard(
+  IconData icon,
+  String title,
+  String description,
+) {
+  return Container(
+    width: 300,
+    padding: const EdgeInsets.all(25),
+    decoration: BoxDecoration(
+      color: Colors.white.withValues(alpha: 0.05),
+      borderRadius: BorderRadius.circular(20),
+      border: Border.all(color: Colors.white24),
+    ),
+    child: Column(
+      children: [
+        Icon(
+          icon,
+          size: 50,
+          color: const Color(0xFF22C55E),
+        ),
+
+        const SizedBox(height: 15),
+
+        Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+
+        const SizedBox(height: 10),
+
+        Text(
+          description,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Colors.white70,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+Widget testimonialCard(
+  String name,
+  String review,
+) {
+  return Container(
+    width: 320,
+    padding: const EdgeInsets.all(25),
+    decoration: BoxDecoration(
+      color: Colors.white.withValues(alpha: 0.05),
+      borderRadius: BorderRadius.circular(20),
+      border: Border.all(color: Colors.white24),
+    ),
+    child: Column(
+      children: [
+
+        const Icon(
+          Icons.star,
+          color: Colors.amber,
+          size: 40,
+        ),
+
+        const SizedBox(height: 15),
+
+        Text(
+          review,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Colors.white70,
+            height: 1.6,
+          ),
+        ),
+
+        const SizedBox(height: 15),
+
+        Text(
+          name,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     ),
   );
 }
