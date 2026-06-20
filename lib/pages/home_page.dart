@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:real_estate_app/pages/properties_page.dart';
 import 'about_page.dart';
 import 'contact_page.dart';
+import 'consultation_page.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -48,15 +50,24 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
 
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 18,
-                              vertical: 10,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.white10,
-                              borderRadius: BorderRadius.circular(30),
-                            ),
+                      Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 25,
+                        vertical: 14,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.08),
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border.all(
+                          color: Colors.white24,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            blurRadius: 20,
+                          ),
+                        ],
+                      ),
                             child:Row(
                             children: [
 
@@ -117,6 +128,36 @@ class HomePage extends StatelessWidget {
                                   fontWeight: FontWeight.w500,),
                                 ),
                               ),
+                              const SizedBox(width: 20),
+
+                      ElevatedButton(
+                        onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ConsultationPage(),
+                          ),
+                        );
+                      },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFFD4AF37),
+                          foregroundColor: Colors.black,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 22,
+                            vertical: 16,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                        child: const Text(
+                          "Get Consultation",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+
                             ],
                           ),
                           ),
@@ -124,230 +165,85 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
 
-    Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(40),
+               // hero section
+
+               Container(
+                height: 700,
+                width: double.infinity,
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFF111827),
-                      Color(0xFF1E293B),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+                  borderRadius: BorderRadius.circular(30),
+                  image: const DecorationImage(
+                    image: AssetImage("assets/images/homeimage.jpg"),
+                    fit: BoxFit.cover,
                   ),
-                  borderRadius: BorderRadius.circular(25),
                 ),
-                child: Column(
-                  children: [
-                    const Icon(
-                      Icons.home_work_rounded,
-                      size: 80,
-                      color: Colors.white,
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    const Text(
-                    "Luxury Living\nStarts Here",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 52,
-                      height: 1.1,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.black.withOpacity(0.55),
                   ),
-
-                    const SizedBox(height: 20),
-
-                    const Text(
-                        "Discover premium villas, apartments and plots across India.",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white70,
-                        ),
-                      ),
-
-                    const SizedBox(height: 30),
-
-                    SizedBox(
-                      width: 320,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Search by city, locality...",
-                          prefixIcon: const Icon(Icons.search),
-                          filled: true,
-                          fillColor: Colors.grey.shade100,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                      ),
-
-                    ),
-                    const SizedBox(height: 25),
-
-                    Row(
+                  child: Center(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+
+                        const Text(
+                          "Find Your Dream\nLuxury Property",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 58,
+                            fontWeight: FontWeight.bold,
+                            height: 1.1,
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        const Text(
+                          "Exclusive Villas • Premium Apartments • Investment Opportunities",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 22,
+                          ),
+                        ),
+
+                        const SizedBox(height: 40),
+
                         ElevatedButton(
-                          onPressed: () {},
-                          child: const Text("Buy"),
-                        ),
-
-                        const SizedBox(width: 10),
-
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: const Text("Rented"),
-                        ),
-
-                        const SizedBox(width: 10),
-
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: const Text("Sell"),
-                        ),
-                      ],
-                    ),
-
-                    const SizedBox(height: 40),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-
-                        Column(
-                          children: [
-                            Text(
-                              "500+",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PropertiesPage(),
                             ),
-                            SizedBox(height: 6),
-                            Text(
-                              "Properties",
-                              style: TextStyle(color: Colors.white70),
-                            ),
-                          ],
-                        ),
-
-                        Column(
-                          children: [
-                            Text(
-                              "200+",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 6),
-                            Text(
-                              "Clients",
-                              style: TextStyle(color: Colors.white70),
-                            ),
-                          ],
-                        ),
-
-                        Column(
-                          children: [
-                            Text(
-                              "50+",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 6),
-                            Text(
-                              "Agents",
-                              style: TextStyle(color: Colors.white70),
-                            ),
-                          ],
-                        ),
-
-                      ],
-                    ),
-
-
-
-
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 40),
-
-              const Text(
-                "Popular Categories",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.asset(
-                              'assets/images/villa.jpg',
-                              width: 60,
-                              height: 60,
-                              fit: BoxFit.cover,
+                          );
+                        },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFFD4AF37),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 40,
+                              vertical: 22,
                             ),
                           ),
-                      SizedBox(height: 8),
-                      Text("Villa"),
-                    ],
-                  ),
-
-                  Column(
-                    children:[
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.asset(
-                        'assets/images/apartments.jpg',
-                        width: 60,
-                        height: 60,
-                        fit: BoxFit.cover,
-                      ),
-                    ), 
-                      SizedBox(height: 8),
-                      Text("Apartment"),
-                    ],
-                  ),
-
-                  Column(
-                    children:[
-                    ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          'assets/images/plots.jpg',
-                          width: 60,
-                          height: 60,
-                          fit: BoxFit.cover,
+                          child: const Text(
+                            "Explore Properties",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Text("Plot"),
-                    ],
+                      ],
+                    ),
                   ),
-                ],
+                ),
               ),
+
+              
+
+              
 
               const SizedBox(height: 40),
               const Text(
@@ -366,8 +262,9 @@ class HomePage extends StatelessWidget {
                     // Villa Card
                     SizedBox(
                       width: 320,
-                      child: Card(
-                        elevation: 5,
+                      child:Card(
+                        color: const Color(0xFF111827),
+                        elevation: 10,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
@@ -394,11 +291,35 @@ class HomePage extends StatelessWidget {
                                 ),
                               ),
                         const Text("Hyderabad"),
-                              const SizedBox(height: 5),
+                              
+                              const SizedBox(height: 10),
+
+                              const Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.bed, color: Colors.white70, size: 18),
+                                  SizedBox(width: 5),
+                                  Text(
+                                    "4 Beds",
+                                    style: TextStyle(color: Colors.white70),
+                                  ),
+
+                                  SizedBox(width: 15),
+
+                                  Icon(Icons.bathtub, color: Colors.white70, size: 18),
+                                  SizedBox(width: 5),
+
+                                  Text(
+                                    "3 Baths",
+                                    style: TextStyle(color: Colors.white70),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 10),
                               const Text(
                                 "₹1.2 Cr",
                                 style: TextStyle(
-                                  color: Color(0xFF22C55E),
+                                  color:Color(0xFFD4AF37),
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -413,7 +334,8 @@ class HomePage extends StatelessWidget {
                     SizedBox(
                       width: 320,
                       child: Card(
-                        elevation: 5,
+                      color: const Color(0xFF111827),
+                      elevation: 10,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
@@ -441,11 +363,35 @@ class HomePage extends StatelessWidget {
                                 ),
                               ),
                               const Text("Gachibowli"),
-                              const SizedBox(height: 5),
+                              
+                              const SizedBox(height: 10),
+
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.bed, color: Colors.white70, size: 18),
+                            SizedBox(width: 5),
+                            Text(
+                              "3 Beds",
+                              style: TextStyle(color: Colors.white70),
+                            ),
+
+                            SizedBox(width: 15),
+
+                            Icon(Icons.bathtub, color: Colors.white70, size: 18),
+                            SizedBox(width: 5),
+
+                            Text(
+                              "3 Baths",
+                              style: TextStyle(color: Colors.white70),
+                            ),
+                          ],
+                        ),
+                               const SizedBox(height: 10),
                               const Text(
                                 "₹80 Lakh",
                                 style: TextStyle(
-                                  color: Color(0xFF22C55E),
+                                  color: Color(0xFFD4AF37),
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -460,7 +406,8 @@ class HomePage extends StatelessWidget {
                     SizedBox(
                       width: 320,
                       child: Card(
-                        elevation: 5,
+                      color: const Color(0xFF111827),
+                      elevation: 10,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
@@ -491,7 +438,7 @@ class HomePage extends StatelessWidget {
                               const Text(
                                 "₹35 Lakh",
                                 style: TextStyle(
-                                  color: Color(0xFF22C55E),
+                                  color:Color(0xFFD4AF37),
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -504,6 +451,53 @@ class HomePage extends StatelessWidget {
 
                   ],
                 ),
+
+                const SizedBox(height: 80),
+
+const Text(
+  "Our Services",
+  style: TextStyle(
+    fontSize: 40,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  ),
+),
+
+const SizedBox(height: 40),
+
+Wrap(
+  spacing: 20,
+  runSpacing: 20,
+  alignment: WrapAlignment.center,
+  children: [
+
+    serviceCard(
+      Icons.home,
+      "Property Buying",
+      "Find your perfect dream property with expert guidance.",
+    ),
+
+    serviceCard(
+      Icons.sell,
+      "Property Selling",
+      "Sell your property faster with maximum value.",
+    ),
+
+    serviceCard(
+      Icons.key,
+      "Luxury Rentals",
+      "Premium rental properties in prime locations.",
+    ),
+
+    serviceCard(
+      Icons.trending_up,
+      "Investment Consulting",
+      "Smart real estate investment strategies.",
+    ),
+  ],
+),
+
+
                 const SizedBox(height: 80),
 
                 Container(
@@ -675,7 +669,7 @@ Container(
       Text(
         "Luxury Living Starts Here",
       style: TextStyle(
-      fontSize: 42,
+      fontSize: 28,
       fontWeight: FontWeight.bold,
       color: Colors.white,
       letterSpacing: 1.2,
@@ -789,6 +783,53 @@ Widget testimonialCard(
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+Widget serviceCard(
+  IconData icon,
+  String title,
+  String description,
+) {
+  return Container(
+    width: 280,
+    padding: const EdgeInsets.all(25),
+    decoration: BoxDecoration(
+      color: Colors.white.withOpacity(0.05),
+      borderRadius: BorderRadius.circular(20),
+      border: Border.all(color: Colors.white24),
+    ),
+    child: Column(
+      children: [
+
+        Icon(
+          icon,
+          size: 50,
+          color: const Color(0xFFD4AF37),
+        ),
+
+        const SizedBox(height: 15),
+
+        Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+
+        const SizedBox(height: 10),
+
+        Text(
+          description,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Colors.white70,
+            height: 1.5,
           ),
         ),
       ],
